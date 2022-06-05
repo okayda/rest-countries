@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="/font-awesome-4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script defer type="module" src="app.js"></script>
+    <title>Country API</title>
+  </head>
+  <body>
+    <main>
+      <header>
+        <div class="nav-container">
+          <div class="nav-content">
+            <h1 class="logo">Where in the world?</h1>
+            <a href="#" class="cta"
+              ><button>
+                <i class="fa fa-moon-o" aria-hidden="true"></i>Dark Mode
+              </button></a
+            >
+          </div>
+        </div>
+      </header>
+
+      <div class="grid-container">
+        <div class="search-box">
+          <i class="fa fa-search" aria-hidden="true"></i>
+          <input type="text" placeholder="Search for a country..." />
+        </div>
+
+        <div class="dropdown-box">
+          <div class="select-box">
+            <div class="options-container">
+              <div class="option">
+                <h4 for="africa">Africa</h4>
+              </div>
+
+              <div class="option">
+                <h4 for="america">America</h4>
+              </div>
+
+              <div class="option">
+                <h4 for="asia">Asia</h4>
+              </div>
+
+              <div class="option">
+                <h4 for="oceania">Oceania</h4>
+              </div>
+
+              <div class="option">
+                <h4 for="europe">Europe</h4>
+              </div>
+
+              <div class="option">
+                <h4 for="filter">Filter by region</h4>
+              </div>
+            </div>
+            <div class="selected">Filters by region</div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
