@@ -1,10 +1,7 @@
 import * as config from "./config.js";
-import * as handler from "./handlers.js";
-import { renderCard } from "./markup.js";
 import { state } from "./state.js";
 import { query } from "./query.js";
-
-const countryContainer = document.querySelector(".grid-container");
+import { renderCard } from "./markup.js";
 
 const load_country = async function (region) {
   try {
@@ -15,9 +12,9 @@ const load_country = async function (region) {
     state.countries = await response.json();
 
     state.countries.forEach((countryData) => {
-      countryContainer.insertAdjacentHTML(
+      query.countriesContainer.insertAdjacentHTML(
         "beforeend",
-        renderCard(countryData, 1)
+        renderCard(countryData)
       );
     });
 
@@ -42,27 +39,37 @@ const selection_region = function (e) {
   load_country(region);
 };
 
-const selection_country = function () {
-  const specificCountry = async function (name) {
+const selected_country_data = async function (name) {
+  try {
     const response = await fetch(config.COUNTRY_NAME_API(name));
-    const data = await response.json();
-    console.log(data);
-  };
-
-  countryContainer.addEventListener("click", function (e) {
-    const targetCountry = e.target
-      .closest(".grid-item")
-      .querySelector(".title").textContent;
-
-    specificCountry(targetCountry);
-  });
+    const [data] = await response.json();
+    query.countriesContainer.innerHTML = "";
+  } catch (err) {
+    console.log(err);
+  }
 };
 
-const init = function () {
-  load_country("Asia");
-  handler.hide_option_handler(hide_options);
-  handler.region_selection_handler(selection_region);
-  handler.country_selection_handler();
+const country_search = function () {
+  const inputValue = this.value.toUpperCase();
+
+  for (let i = 0; i < state.gridItems.length; i++) {
+    const text = state.gridItems[i].querySelector(".title");
+    const txtValue = text.textContent || text.innerText;
+    if (txtValue.toUpperCase().indexOf(inputValue) > -1)
+      state.gridItems[i].style.display = "";
+    else state.gridItems[i].style.display = "none";
+  }
 };
 
-init();
+load_country("Asia");
+query.selected.addEventListener("click", hide_options);
+query.optionsContainer.addEventListener("click", selection_region);
+query.countriesContainer.addEventListener("click", (e) => {
+  const targetCountry = e.target.closest(".grid-item");
+  if (!targetCountry) return;
+
+  const country = targetCountry.querySelector(".title").textContent;
+  selected_country_data(country);
+});
+
+query.searchInput.addEventListener("keyup", country_search);
