@@ -1,4 +1,4 @@
-import icon from "url:/icons.svg";
+import icon from "url:/spinner/icons.svg";
 
 export const renderCard = function (data) {
   return `
@@ -65,7 +65,7 @@ export const renderSpinner = function (element) {
   const markup = `
   <div class="spinner">
     <svg>
-      <use href="${icon}icon-loader"></use>
+      <use href="${icon}#icon-loader"></use>
     </svg>
   </div>
 `;
