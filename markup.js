@@ -1,4 +1,4 @@
-import icon from "./icons.svg";
+import icon from "/icons.svg";
 
 export const renderCard = function (data) {
   return `
