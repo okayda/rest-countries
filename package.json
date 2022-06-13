@@ -1,0 +1,23 @@
+{
+  "name": "rest-countries-api-with-color-theme-switcher-master",
+  "version": "1.0.0",
+  "description": "",
+  "default": "app.js",
+  "scripts": {
+    "start": "pracel index.html",
+    "build": "parcel build index.html --dist-dir ./dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/okayda/rest-countries.git"
+  },
+  "author": "okayda999",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/okayda/rest-countries/issues"
+  },
+  "homepage": "https://github.com/okayda/rest-countries#readme",
+  "devDependencies": {
+    "parcel": "^2.6.0"
+  }
+}
