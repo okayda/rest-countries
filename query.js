@@ -1,7 +1,16 @@
 export const query = {
+  mainDark: "dark-mode-parent",
+  secondaryDark: "dark-mode-child",
+
+  lightBlackText: "var(--light-mode-text)",
+  lightGrayText: "var(--very-light-gray)",
+
+  header: document.querySelector("header"),
+
   themeBtn: document.querySelector(".theme-btn"),
   backBtn: document.querySelector(".back-btn"),
 
+  searchBox: document.querySelector(".search-box"),
   searchInput: document.querySelector(".search-input"),
 
   selected: document.querySelector(".selected"),
@@ -14,7 +23,9 @@ export const query = {
   ),
   detailsContainer: document.querySelector(".details-container"),
 
+  gridItemTitle: ".item-title",
+
   flagContainer: ".flag-container",
   details: ".country-details-container",
-  gridItemTitle: ".item-title",
+  neighbor: ".neighbor",
 };

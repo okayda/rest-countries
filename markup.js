@@ -1,3 +1,5 @@
+// If iver want to convert this, to the distribution file using parcel 2V
+// and deploy it in the internet => icon render spinner
 import icon from "url:/spinner/icons.svg";
 
 export const renderCard = function (data) {
@@ -15,7 +17,9 @@ export const renderCard = function (data) {
             "en-US"
           )}</span></p>
           <p class="item-region">Region: <span>${data.region}</span></p>
-          <p class="item-capital">Capital: <span>${data.capital}</span></p>
+          <p class="item-capital">Capital: <span>${
+            data.capital ?? "N/A"
+          }</span></p>
         </div>
       </div>
 `;
@@ -38,7 +42,9 @@ export const renderCountry = function (data, borders) {
       )}</span></p>
       <p class="country-region">Region: <span>${data.region}</span></p>
       <p class="country-subregion">Region: <span>${data.subregion}</span></p>
-      <p class="country-capital">Capital: <span>${data.capital}</span></p>
+      <p class="country-capital">Capital: <span>${
+        data.capital ?? "N/A"
+      }</span></p>
       <p class="country-domain">Top Level Domain: <span>${
         data.tld[0]
       }</span></p>
@@ -54,7 +60,7 @@ export const renderCountry = function (data, borders) {
       <h4 class="border-country-title">Border Countries:</h4>
 
       <div class="country-neighbors">
-        ${borders.map((el) => `<p>${el}</p>`).join(" ")}
+        ${borders.map((el) => `<p class="neighbor">${el}</p>`).join(" ")}
       </div>
     </div>
   </div>

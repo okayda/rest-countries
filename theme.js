@@ -1,42 +1,41 @@
 import { state } from "./state.js";
+import { query } from "./query.js";
 
 export const dark_mode_countries = function () {
   state.gridItems.forEach((el) => {
-    el.classList.toggle("dark-mode-child");
+    el.classList.toggle(query.secondaryDark);
   });
 };
 
 export const dark_mode_borders = function () {
   if (state.isDarkMode && state.isInsideCountry)
     document
-      .querySelectorAll(".neighbors p")
-      .forEach((el) => el.classList.toggle("dark-mode-child"));
+      .querySelectorAll(query.neighbor)
+      .forEach((el) => el.classList.toggle(query.secondaryDark));
 };
 
 export const theme_mode = function () {
   state.isDarkMode = !state.isDarkMode ? true : false;
 
-  document.querySelector("body").classList.toggle("dark-mode-parent");
+  document.querySelector("body").classList.toggle(query.mainDark);
   document.querySelector("body").style.color = state.isDarkMode
-    ? "var(--very-light-gray)"
-    : "var(--light-mode-text)";
+    ? query.lightGrayText
+    : query.lightBlackText;
 
-  document.querySelector("header").classList.toggle("dark-mode-child");
-  document.querySelector(".selected").classList.toggle("dark-mode-child");
+  query.header.classList.toggle(query.secondaryDark);
+  query.selected.classList.toggle(query.secondaryDark);
 
-  document.querySelector(".search-box").classList.toggle("dark-mode-child");
-  document.querySelector(".search-input").classList.toggle("dark-mode-child");
+  query.searchBox.classList.toggle(query.secondaryDark);
+  query.searchInput.classList.toggle(query.secondaryDark);
 
-  document.querySelector(".back-btn").classList.toggle("dark-mode-child");
+  query.backBtn.classList.toggle(query.secondaryDark);
 
   if (state.isInsideCountry)
     document
-      .querySelectorAll(".neighbors p")
-      .forEach((el) => el.classList.toggle("dark-mode-child"));
+      .querySelectorAll(query.neighbor)
+      .forEach((el) => el.classList.toggle(query.secondaryDark));
 
-  document
-    .querySelector(".options-container")
-    .classList.toggle("dark-mode-child");
+  query.optionsContainer.classList.toggle(query.secondaryDark);
 
   dark_mode_countries();
 };

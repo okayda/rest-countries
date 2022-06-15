@@ -53,7 +53,6 @@ const borders_data = async function (borders) {
 
   return await Promise.all(
     borders.map(async (el) => {
-      console.log(el);
       const response = await fetch(config.COUNTRY_CODE_API(el));
       const [data] = await response.json();
       return data.name.common;

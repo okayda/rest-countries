@@ -16,7 +16,7 @@
   <body>
     <main>
       <header>
-        <div class="nav-container">
+        <div class="parent-nav-container">
           <div class="nav-content">
             <h1 class="logo">Where in the world?</h1>
             <button class="theme-btn">
@@ -26,6 +26,7 @@
         </div>
       </header>
 
+      <section class="parent-grid-container">
       <div class="grid-container">
         <div class="search-box">
           <i class="fa fa-search" aria-hidden="true"></i>
@@ -38,35 +39,36 @@
 
         <div class="dropdown-box">
           <div class="select-box">
-            <div class="options-container">
-              <div class="option">
-                <h4 data-region="africa" class="africa">Africa</h4>
-              </div>
+            <ul class="options-container">
+              <li class="option">
+                <button data-region="africa" class="africa">Africa</button>
+              </li>
 
-              <div class="option">
-                <h4 data-region="america" class="america">America</h4>
-              </div>
+              <li class="option">
+                <button data-region="america" class="america">America</button>
+              </li>
 
-              <div class="option">
-                <h4 data-region="asia" class="asia">Asia</h4>
-              </div>
+              <li class="option">
+                <button data-region="asia" class="asia">Asia</button>
+              </li>
 
-              <div class="option">
-                <h4 data-region="oceania" class="oceania">Oceania</h4>
-              </div>
+              <li class="option">
+                <button data-region="oceania" class="oceania">Oceania</button>
+              </li>
 
-              <div class="option">
-                <h4 data-region="europe" class="europe">Europe</h4>
-              </div>
+              <li class="option">
+                <button data-region="europe" class="europe">Europe</button>
+              </li>
 
-              <div class="option">
-                <h4 data-region="all" class="all active">All Region</h4>
-              </div>
-            </div>
-            <h4 class="selected">Filters by region<i class="fa fa-arrow-up lol" aria-hidden="true"></i></h4>
+              <li class="option">
+                <button data-region="all" class="all active">All Region</button>
+              </li>
+            </ul>
+            <button class="selected">Filters by region<i class="fa fa-arrow-up" aria-hidden="true"></i></button>
           </div>
         </div>
-      </div>
+    </div>
+    </section>
 
       <div class="parent-country-details-container">
         <div class="details-container">
